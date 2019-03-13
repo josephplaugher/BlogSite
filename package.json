@@ -1,5 +1,5 @@
 {
-  "name": "thinkfree-node",
+  "name": "blog-site",
   "version": "1.0.0",
   "description": "Blog site built on Nodejs with SSR for blog content and react for user login and commenting",
   "main": "index.js",
@@ -12,10 +12,9 @@
     "start-server:dev": "NODE_ENV=development nodemon src/server.js --exec 'node -r dotenv/config'",
     "start-server:prod": "NODE_ENV=production forever start forever-config.json"
   },
-  "author": "Friedman Smith",
+  "author": "Joseph Plaugher",
   "license": "ISC",
   "dependencies": {
-    "@sentry/node": "^4.4.2",
     "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
@@ -30,7 +29,6 @@
     "pg": "^7.4.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-google-login-component": "^0.9.3",
     "react-router-dom": "^4.3.1",
     "reactform-appco": "^1.0.3",
     "router-express": "^1.5.2",
