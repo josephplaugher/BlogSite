@@ -37,16 +37,17 @@ class App extends React.Component {
   };
 
   signInResponse = resp => {
-    if (resp.success) {
+    if (resp.success === true) {
+      sessionStorage.setItem("thinkfree-username", resp.userData.username);
+      sessionStorage.setItem("thinkfree-email", resp.userData.email);
+      sessionStorage.setItem("thinkfree-sub", resp.userData.subscribe);
+      console.log("storage");
       this.setState({
         userData: resp.userData,
         userNotify: resp.userNotify,
         subscribed: true,
         showForm: false
       });
-      sessionStorage.setItem("thinkfree-username", resp.userData.username);
-      sessionStorage.setItem("thinkfree-email", resp.userData.email);
-      sessionStorage.setItem("thinkfree-sub", resp.userData.subscribed);
     } else {
       this.setState({ userNotify: resp.userNotify });
     }

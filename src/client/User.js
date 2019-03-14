@@ -1,4 +1,5 @@
 import React from "react";
+import EB from "./util/EB";
 import LightBox from "lightbox-appco";
 import SignIn from "./SignIn";
 import NewUser from "./NewUser";
@@ -24,56 +25,46 @@ class User extends React.Component {
   hideUserMenu = () => {
     this.setState({ showUserMenu: false });
   };
-  render() {
-    const url = SetUrl();
 
+  render() {
     return (
       <div>
         {this.props.user.username ? (
           <>
-            <p id="userstate" className="user-menu-area">
-              Signed in as {this.props.user.username}
-            </p>
-            <div
-              id="user-menu-button"
-              className="user-menu-area"
-              onClick={this.showUserMenu}
-            >
-              <div className="user-menu-bar" />
-              <div className="user-menu-bar" />
-            </div>
+            {/* prettier-ignore */}
+            <EB comp="if username is true, section">
+              <p id="userstate" className="user-menu-area">Signed in as {this.props.user.username}</p>
+              <div id="user-menu-button" className="user-menu-area" onClick={this.showUserMenu}>
+                <div className="user-menu-bar" />
+                <div className="user-menu-bar" />
+              </div>
+            </EB>
 
             {this.state.showUserMenu ? (
-              <UserMenu
-                hideMenu={this.hideUserMenu}
-                logout={this.props.logout}
-                user={this.props.user}
-                updateSubscribed={this.props.updateSubscribed}
-              />
+              <EB comp="UserMenu in User.js">
+                <UserMenu
+                  hideMenu={this.hideUserMenu}
+                  logout={this.props.logout}
+                  user={this.props.user}
+                  updateSubscribed={this.props.updateSubscribe}
+                />
+              </EB>
             ) : null}
           </>
         ) : (
           <>
+            {/* prettier-ignore */}
             <LightBox
-              close={this.props.close}
-              style={{
-                backgroundColor: "white",
-                width: "275px",
-                height: "400px"
-              }}
-            >
+              close={this.props.close} style={{backgroundColor: "white", width: "275px", height: "400px" }}>
               <div>
                 {this.props.authForm === "sign-in" ? (
-                  <SignIn
-                    response={this.props.signInResponse}
-                    userNotify={this.props.userNotify}
-                  />
+                  <EB comp="sign-in in User.js">
+                    <SignIn response={this.props.signInResponse} userNotify={this.props.userNotify} />
+                  </EB>
                 ) : this.props.authForm === "new-user" ? (
-                  <NewUser
-                    url={url}
-                    response={this.props.signInResponse}
-                    userNotify={this.props.userNotify}
-                  />
+                  <EB comp="NewUser in User.js">
+                    <NewUser response={this.props.signInResponse} userNotify={this.props.userNotify} />
+                  </EB>
                 ) : null}
               </div>
             </LightBox>
