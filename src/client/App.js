@@ -109,15 +109,15 @@ class App extends React.Component {
           ) : (
             <div>
               <Button
-                id="native-login"
+                id="login"
                 value="Sign In To Comment"
-                className="submit-button"
+                className=""
                 onClick={() => this.showUserForm("sign-in")}
               />
               <Button
-                id="native-signup"
+                id="signup"
                 value="Create Username To Comment"
-                className="submit-button"
+                className=""
                 onClick={() => this.showUserForm("new-user")}
               />
             </div>
