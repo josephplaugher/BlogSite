@@ -10,7 +10,7 @@ class App extends React.Component {
     super();
     this.state = {
       userData: {},
-      userNotify: "",
+      userNotify: {},
       showForm: false,
       authForm: "",
       nativeUser: true,
@@ -41,7 +41,6 @@ class App extends React.Component {
       sessionStorage.setItem("thinkfree-username", resp.userData.username);
       sessionStorage.setItem("thinkfree-email", resp.userData.email);
       sessionStorage.setItem("thinkfree-sub", resp.userData.subscribe);
-      console.log("storage");
       this.setState({
         userData: resp.userData,
         userNotify: resp.userNotify,
