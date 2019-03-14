@@ -64,11 +64,11 @@ class App extends React.Component {
   };
 
   updateSubscribed = () => {
-    if (this.state.userData.subscribed === true) {
+    if (this.state.userData.subscribe === true) {
       let data = { email: this.state.userData.email, subscribe: false };
       Ajax.post(SetUrl() + "/updateSubscribed", data).then(res => {
         let newUserData = Object.assign({}, this.state.userData);
-        newUserData.subscribed = false;
+        newUserData.subscribe = false;
         this.setState({ userData: newUserData });
         sessionStorage.setItem("thinkfree-sub", "false");
       });
@@ -76,7 +76,7 @@ class App extends React.Component {
       let data = { email: this.state.userData.email, subscribe: true };
       Ajax.post(SetUrl() + "/updateSubscribed", data).then(res => {
         let newUserData = Object.assign({}, this.state.userData);
-        newUserData.subscribed = true;
+        newUserData.subscribe = true;
         this.setState({ userData: newUserData });
         sessionStorage.setItem("thinkfree-sub", "true");
       });

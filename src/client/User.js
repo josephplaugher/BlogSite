@@ -46,7 +46,7 @@ class User extends React.Component {
                   hideMenu={this.hideUserMenu}
                   logout={this.props.logout}
                   user={this.props.user}
-                  updateSubscribed={this.props.updateSubscribe}
+                  updateSubscribed={this.props.updateSubscribed}
                 />
               </EB>
             ) : null}
