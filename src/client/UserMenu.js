@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "reactform-appco";
+import Menu from "menu-appco";
 import "css/lightbox.css";
 import "css/form.css";
 
@@ -21,33 +22,37 @@ class UserMenu extends React.Component {
 
   render() {
     return (
-      <div className="lightbox-background">
-        <div className="usermenu-lightbox">
-          <span className="close-button" onClick={this.props.hideMenu}>
-            x
-          </span>
-          {this.props.user.subscribe ? (
-            <p>You are subscribed</p>
-          ) : (
-            <p>You are not subscribed</p>
-          )}
-          <span
-            className="signout-button"
-            onClick={this.props.updateSubscribed}
+      <>
+        {this.props.showMenu ? (
+          <Menu
+            showMenu={this.state.showMenu}
+            closeHanlder={this.props.closeHandler}
           >
-            {this.props.user.subscribe ? (
-              <Button value="Unsubscribe" className="submit-button" />
-            ) : (
-              <Button value="Subscribe" className="submit-button" />
-            )}
-          </span>
-          <Button
-            className="submit-button"
-            onClick={this.props.logout}
-            value="Sign Out"
-          />
-        </div>
-      </div>
+            <>
+              {this.props.user.subscribe ? (
+                <p>You are subscribed</p>
+              ) : (
+                <p>You are not subscribed</p>
+              )}
+              <span
+                className="signout-button"
+                onClick={this.props.updateSubscribed}
+              >
+                {this.props.user.subscribe ? (
+                  <Button value="Unsubscribe" className="submit-button" />
+                ) : (
+                  <Button value="Subscribe" className="submit-button" />
+                )}
+              </span>
+              <Button
+                className="submit-button"
+                onClick={this.props.logout}
+                value="Sign Out"
+              />
+            </>
+          </Menu>
+        ) : null}
+      </>
     );
   }
 }

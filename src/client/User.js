@@ -43,7 +43,8 @@ class User extends React.Component {
             {this.state.showUserMenu ? (
               <EB comp="UserMenu in User.js">
                 <UserMenu
-                  hideMenu={this.hideUserMenu}
+                  showMenu={this.state.showUserMenu}
+                  closeHandler={this.hideUserMenu}
                   logout={this.props.logout}
                   user={this.props.user}
                   updateSubscribed={this.props.updateSubscribed}
