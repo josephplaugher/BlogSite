@@ -1,7 +1,6 @@
 import React from "react";
 import { FormClass, Input, Button } from "reactform-appco";
 import ValRules from "util/ValRules";
-import SetUrl from "./util/SetUrl";
 import "css/lightbox.css";
 import "css/form.css";
 
