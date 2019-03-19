@@ -1,6 +1,5 @@
 const Conn = require("./../util/postgres");
 const bcrypt = require("bcryptjs");
-const log = require("./../util/Logger");
 const email = require("./email");
 
 const checkUsername = (req, res) => {
@@ -19,7 +18,7 @@ const checkUsername = (req, res) => {
     };
     Conn.query(query)
       .catch(e => {
-        log(e, "newUser.js");
+        console.log(e, "newUser.js");
       })
       .then(result => {
         if (result.rowCount > 0) {
@@ -49,7 +48,7 @@ const setNewUser = (req, res) => {
   };
   Conn.query(query)
     .catch(e => {
-      log(e, "newUser.js");
+      console.log(e, "newUser.js");
     })
     .then(result => {
       email(req.body, req, res);

@@ -1,5 +1,4 @@
 const Conn = require("../util/postgres");
-const log = require("../util/Logger");
 
 updateSubscribed = (req, res) => {
   if (req.body.subscribe === true) {
@@ -13,7 +12,7 @@ updateSubscribed = (req, res) => {
   };
   Conn.query(query)
     .catch(e => {
-      log(e, "updateSubscribed.js");
+      console.log(e, "updateSubscribed.js");
     })
     .then(data => {
       res.status(200).json({ success: true });

@@ -2,7 +2,6 @@ const dotenv = require("dotenv").config();
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const log = require("./util/Logger");
 const SetUrl = require("./util/SetUrl");
 const blog = require("./model/blog");
 const getComments = require("./model/comments");
