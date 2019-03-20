@@ -8,7 +8,7 @@ body {
 
 .logo {
   font-family: serif;
-  color: white;
+  color: rgba(255, 0, 0, 0.829);
 }
 
 @media screen and (min-width: 701px) {
@@ -19,7 +19,7 @@ body {
   }
 
   #header {
-    background-color: black;
+    background-color: blue;
     padding: 50px;
   }
 
@@ -49,7 +49,7 @@ body {
   #bloglist-container {
     right: 0px;
     width: 25%;
-    top: 250px;
+    top: 160px;
     position: absolute;
     float: right;
   }
@@ -74,14 +74,10 @@ body {
   }
 
   #title {
-    font-size: 30px;
-    padding: 35px;
     text-align: center;
   }
 
   #description {
-    font-size: 20px;
-    padding: 25px;
     text-align: center;
   }
 
@@ -121,7 +117,7 @@ body {
   }
 
   #header {
-    background-color: black;
+    background-color: blue;
     padding: 10px;
   }
 
@@ -185,14 +181,10 @@ body {
   }
 
   #title {
-    font-size: 30px;
-    padding: 3px;
     text-align: center;
   }
 
   #description {
-    font-size: 20px;
-    padding: 3px;
     text-align: center;
   }
 
