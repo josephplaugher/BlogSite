@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Language" content="en-us" />
+  <title>Blog Title</title>
+  <link rel="stylesheet" href="css/blog.css" />
+  <link rel="stylesheet" href="css/comments.css" />
+</head>
+
+<body>
+  <div id="header">
+    <h1 class="pageheader"><span class="logo">Blog Header</span></h1>
+  </div>
+  <div id="currentUser"></div>
+  <div id="menu-button">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <div id="viewblog">
+    <div id="title">
+      <h1><%- title %></h1>
+    </div>
+    <div id="description">
+      <h2><%- description %></h2>
+    </div>
+    <div id="body">
+      <%- body %>
+    </div>
+    <div id="postid" style="display: none">
+      <%- postid %>
+    </div>
+    <div id="bloglist-container">
+      <div id="bloglist">
+        <%- blogList %>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script src="javascript/bundle.js"></script>
+</body>
+</html>

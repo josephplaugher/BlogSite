@@ -1,0 +1,56 @@
+.formTitle {
+  color: black;
+  font-size: 18px;
+  text-align: left;
+  padding-left: 30px;
+}
+
+.rfa_textinput {
+  border-top: 0px;
+  border-right: 0px;
+  padding: 5px;
+  background-color: grey;
+}
+
+.form-container {
+  background-color: white;
+  width: 250px;
+  height: auto;
+  margin: auto;
+}
+
+.input-container {
+  display: inline-block;
+  margin: 14px;
+}
+
+.label {
+  position: absolute;
+  margin-top: -9px;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.rfa_submit {
+  float: left;
+  margin: 0px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.buttondiv {
+  clear: both;
+  margin: 10px;
+}
+
+.rfa_input-error {
+  font-size: 10px;
+  color: red;
+  width: 200px;
+  word-wrap: break-word;
+}
+
+.text {
+  color: black;
+}
