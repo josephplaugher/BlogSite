@@ -70,7 +70,7 @@ class User extends React.Component {
           <>
             {/* prettier-ignore */}
             <LightBox
-              close={this.props.close} style={{backgroundColor: "white", width: "275px", height: "400px" }}>
+              close={this.props.close} style={{backgroundColor: "white", width: "275px", height: "400px", left: "5" }}>
               <div>
                 {this.props.authForm === "sign-in" ? (
                   <EB comp="sign-in in User.js">
