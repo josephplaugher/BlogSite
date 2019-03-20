@@ -1,7 +1,6 @@
 const Conn = require("./../util/postgres");
 
 const newComment = function(req, res) {
-  console.log("new comment:", req.body);
   var i = req.body;
   var query = {
     text: `

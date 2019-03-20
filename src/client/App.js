@@ -95,7 +95,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="login-status">
+        <div id="login-status">
           {this.state.userData.email || this.state.showForm ? (
             <User
               user={this.state.userData}

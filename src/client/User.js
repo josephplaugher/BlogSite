@@ -3,9 +3,8 @@ import EB from "./util/EB";
 import LightBox from "lightbox-appco";
 import SignIn from "./SignIn";
 import NewUser from "./NewUser";
+import { Menu, MenuButton } from "menu-appco";
 import UserMenu from "./UserMenu";
-import SetUrl from "./util/SetUrl";
-import "css/lightbox.css";
 import "css/form.css";
 import "css/usermenu.css";
 
@@ -13,41 +12,57 @@ class User extends React.Component {
   constructor(props) {
     super(props);
     this.state = { showUserMenu: false };
-    this.showUserMenu = this.showUserMenu.bind(this);
-    this.hideUserMenu = this.hideUserMenu.bind(this);
+    this.toggleUserMenu = this.toggleUserMenu.bind(this);
   }
 
-  showUserMenu = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    this.setState({ showUserMenu: true });
-  };
-
-  hideUserMenu = () => {
-    this.setState({ showUserMenu: false });
-  };
+  toggleUserMenu() {
+    if (this.state.showUserMenu === true) {
+      this.setState({ showUserMenu: false });
+    } else {
+      this.setState({ showUserMenu: true });
+    }
+  }
 
   render() {
     return (
-      <div>
+      <>
         {this.props.user.username ? (
           <>
             {/* prettier-ignore */}
             <EB comp="if username is true, section">
+              <>
               <p id="userstate" className="user-menu-area">Signed in as {this.props.user.username}</p>
-              <div id="user-menu-button" className="user-menu-area" onClick={this.showUserMenu}>
-                <div className="user-menu-bar" />
-                <div className="user-menu-bar" />
+              <div className="user-menu-area">
+              <MenuButton style={{ bordercolor: "grey" }} 
+                  barStyle={{backgroundColor: "black"}} 
+                  onClick={this.toggleUserMenu} 
+              />
               </div>
+              </>
             </EB>
 
             {this.state.showUserMenu ? (
               <EB comp="UserMenu in User.js">
-                <UserMenu
-                  hideMenu={this.hideUserMenu}
-                  logout={this.props.logout}
-                  user={this.props.user}
-                  updateSubscribed={this.props.updateSubscribed}
-                />
+                <>
+                  <Menu
+                    showMenu={this.state.showUserMenu}
+                    closeHandler={this.toggleUserMenu}
+                    style={{
+                      backgroundColor: "lightgrey",
+                      height: "200px",
+                      width: "250px"
+                    }}
+                  >
+                    <UserMenu
+                      showUserMenu={this.toggleUserMenu}
+                      style={{ backgroundColor: "white" }}
+                      closeHandler={this.toggleUserMenu}
+                      logout={this.props.logout}
+                      user={this.props.user}
+                      updateSubscribed={this.props.updateSubscribed}
+                    />
+                  </Menu>
+                </>
               </EB>
             ) : null}
           </>
@@ -70,7 +85,7 @@ class User extends React.Component {
             </LightBox>
           </>
         )}
-      </div>
+      </>
     );
   }
 }

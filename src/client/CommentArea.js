@@ -26,7 +26,6 @@ class CommentArea extends FormClass {
   }
 
   response = res => {
-    console.log("res in commentarea: ", res);
     this.updateComments(this.state.postid);
   };
 
