@@ -67,7 +67,7 @@ const getPostByID = function(req, res) {
 	}
 	Conn.query(query)
 		.catch((e) => {
-			log(e, 'blog.js')
+			console.log(e, 'blog.js')
 		})
 		.then((resp) => {
 			if (resp.rows[0]) {
@@ -98,7 +98,7 @@ const userSelectPost = function(req, res) {
 	}
 	Conn.query(query)
 		.catch((e) => {
-			log(e, 'blog.js')
+			console.log(e, 'blog.js')
 		})
 		.then((resp) => {
 			res.status(200).json({ postdata: resp.rows[0] })
